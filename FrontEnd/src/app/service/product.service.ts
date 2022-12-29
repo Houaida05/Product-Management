@@ -9,12 +9,13 @@ import {Observable} from "rxjs";
 export class ProductService {
   baseUrl = environment.url;
 
+
   constructor(private http: HttpClient) {
   }
   ListResource(url:string): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/${url}`);
   }
   DeleteProduct(id: any): Observable<any> {
-    return this.http.delete<any>(this.baseUrl+"/" + id);
+    return this.http.delete<any>(this.baseUrl+"/products/" + id);
   }
 }

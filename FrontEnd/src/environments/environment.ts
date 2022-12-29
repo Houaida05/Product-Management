@@ -4,8 +4,6 @@
 
 export const environment = {
   production: false,
-  urlProduct: "http://localhost:8080/products",
-  urlCategory: "http://localhost:8080/categories",
   url: "http://localhost:8080"
 
 };
