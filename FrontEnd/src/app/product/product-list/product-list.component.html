@@ -1,0 +1,30 @@
+<mat-card class="container">
+  <div fxLayout="row wrap" fxLayoutGap="28px">
+    <div fxFlex="30%" *ngFor="let prod of products">
+      <mat-card class="product-card">
+        <mat-card-header>
+          <mat-card-title>{{prod.title}}</mat-card-title>
+          <mat-card-subtitle>{{prod.category}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+        <mat-card-content>
+          <p>
+            {{prod.description}}
+          </p>
+          <mat-divider></mat-divider>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-mini-fab color="primary">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button (click)="confirmDialog(prod.id)" mat-mini-fab color="warn"
+                  aria-label="Example icon button with a filter list icon">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-actions>
+
+
+      </mat-card>
+    </div>
+  </div>
+</mat-card>
