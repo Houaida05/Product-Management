@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container" *ngIf="tmpArray">
 <ngx-charts-pie-grid
-    [results]="saleData">
+    [results]="tmpArray">
   </ngx-charts-pie-grid>
   <ngx-charts-bar-vertical
-    [view]="[1000,400]"
-    [results]="saleData"
+    [view]="[700,200]"
+    [results]="tmpArray"
     [xAxisLabel]="'Products'"
     [legendTitle]="'Product Sale Chart'"
     [yAxisLabel]="'Sale'"

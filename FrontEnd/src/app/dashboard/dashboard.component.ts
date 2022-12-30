@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ProductService} from "../service/product.service";
+import {Category} from "../shared/category";
 
 @Component({
   selector: 'app-dashboard',
@@ -6,16 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  saleData = [
-    { name: "Mobiles", value: 105000 },
-    { name: "Laptop", value: 55000 },
-    { name: "AC", value: 15000 },
-    { name: "Headset", value: 150000 },
-    { name: "Fridge", value: 20000 }
-  ];
-  constructor() { }
+    tmpArray?= [];
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
+    this.getProductsByCategory();
   }
-
+  getProductsByCategory() {
+    this.productService.getProductCountperCategory().subscribe(data =>{ this.tmpArray = data; console.log(this.tmpArray);})
+}
 }

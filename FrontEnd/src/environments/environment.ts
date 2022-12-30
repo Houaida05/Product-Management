@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   productUrl: "http://localhost:8080/products",
   categoryUrl:"http://localhost:8080/categories",
-  photoUrl:"http://localhost:8080/images"
+  photoUrl:"http://localhost:8080/images",
+  categoryProdUrl:"http://localhost:8080/categoryprod"
 
 
 };

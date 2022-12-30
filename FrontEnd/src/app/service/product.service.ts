@@ -12,6 +12,7 @@ import {Photo} from "../shared/photo";
 export class ProductService {
   private baseUrl = environment.productUrl;
   private categoryUrl = environment.categoryUrl;
+  private productCategoryUrl=environment.categoryProdUrl;
 
   constructor(private http: HttpClient) {
   }
@@ -61,6 +62,11 @@ export class ProductService {
     );
   }
 
+  getProductCountperCategory():Observable<any>{ {
+    return this.http.get<any>(this.productCategoryUrl);
+  }
+
+  }
 }
 interface  GetResponsePhoto{
   _embedded:{

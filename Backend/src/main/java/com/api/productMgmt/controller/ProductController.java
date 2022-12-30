@@ -1,5 +1,6 @@
 package com.api.productMgmt.controller;
 
+import com.api.productMgmt.DTO.TotalProductDTO;
 import com.api.productMgmt.model.Photo;
 import com.api.productMgmt.model.Product;
 import com.api.productMgmt.repository.CategoryRepository;
@@ -52,5 +53,9 @@ public class ProductController {
         return Files.readAllBytes(Paths.get(System.getProperty("user.dir") + photo.getUrl()));
     }
 
+    @GetMapping("/categoryprod")
+    public List<TotalProductDTO> getproductwithcategory (){
+      return productRepository.countTotalProductsByCategory();
+        }
 }
 
