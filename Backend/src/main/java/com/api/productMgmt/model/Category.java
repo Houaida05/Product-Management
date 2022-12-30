@@ -16,4 +16,8 @@ public class Category {
     private String name;
     @OneToMany(mappedBy = "category",cascade = CascadeType.ALL)
     private Collection<Product> products = new ArrayList<>();
+    public Category(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

@@ -1,0 +1,15 @@
+<mat-card class="container" fxLayoutAlign="center center">
+  <form (ngSubmit)="editProduct()" >
+    <mat-card fxLayout="column" fxLayoutGap="30px"  style="width:500px;" >
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput name="title" [(ngModel)]="product.title">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput name="description"  [(ngModel)]="product.description"></textarea>
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary">Submit</button>
+    </mat-card>
+  </form>
+</mat-card>

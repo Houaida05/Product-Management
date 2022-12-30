@@ -15,13 +15,30 @@ import {MatIconModule} from "@angular/material/icon";
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import { AddProductComponent } from './product/add-product/add-product.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSelectModule} from "@angular/material/select";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatInputModule} from "@angular/material/input";
+import { EditProductComponent } from './product/edit-product/edit-product.component';
+import { SearchProductComponent } from './product/search-product/search-product.component';
+import { CategoryListComponent } from './category/category-list/category-list.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {CarouselModule} from "primeng/carousel";
+import { DashboardComponent } from './dashboard/dashboard.component';
+import {NgxChartsModule} from "@swimlane/ngx-charts";
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
     ConfirmDialogComponent,
-    AddProductComponent
+    AddProductComponent,
+    EditProductComponent,
+    SearchProductComponent,
+    CategoryListComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +51,16 @@ import { AddProductComponent } from './product/add-product/add-product.component
     FlexLayoutModule,
     MatDividerModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    NgbModule,
+    CarouselModule,
+    NgxChartsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

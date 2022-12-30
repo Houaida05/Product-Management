@@ -1,1 +1,22 @@
-<p>add-product works!</p>
+<mat-card class="container" fxLayoutAlign="center center">
+  <form [formGroup]="form" (ngSubmit)="submitForm()">
+  <mat-card fxLayout="column" fxLayoutGap="30px"  style="width:500px;" >
+  <mat-form-field appearance="fill">
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="title">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Select</mat-label>
+    <mat-select formControlName="category">
+      <mat-option  *ngFor="let cat of categoryList" [value]="cat.id">{{cat.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description"></textarea>
+  </mat-form-field>
+    <input class="form-control"  multiple type="file"  accept="image/*" (change)="upload($event)" formControlName="files"  />
+    <button type="submit" mat-raised-button color="primary">Submit</button>
+  </mat-card>
+  </form>
+</mat-card>

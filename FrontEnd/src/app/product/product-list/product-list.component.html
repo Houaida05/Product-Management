@@ -1,20 +1,30 @@
 <mat-card class="container">
   <div fxLayout="row wrap" fxLayoutGap="28px">
+    <app-search-product></app-search-product><app-category-list></app-category-list>
+  </div>
+  <div fxLayout="row wrap" fxLayoutGap="28px">
     <div fxFlex="30%" *ngFor="let prod of products">
       <mat-card class="product-card">
         <mat-card-header>
           <mat-card-title>{{prod.title}}</mat-card-title>
           <mat-card-subtitle>{{prod.category}}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+        <p-carousel [value]="prod.photos" [numVisible]="1" [numScroll]="1" [circular]="false" [autoplayInterval]="2000" >
+          <ng-template let-image pTemplate="item">
+            <div class="item card">
+              <img [src]="this.photoUrl+ '/'+image.id" class="card-img-top" alt="...">
+              </div>
+          </ng-template>
+        </p-carousel>
         <mat-card-content>
           <p>
             {{prod.description}}
           </p>
           <mat-divider></mat-divider>
         </mat-card-content>
+
         <mat-card-actions>
-          <button mat-mini-fab color="primary">
+          <button mat-mini-fab color="primary" [routerLink]="['/edit/',prod.id]">
             <mat-icon>edit</mat-icon>
           </button>
           <button (click)="confirmDialog(prod.id)" mat-mini-fab color="warn"
@@ -22,9 +32,33 @@
             <mat-icon>delete</mat-icon>
           </button>
         </mat-card-actions>
-
-
       </mat-card>
+    </div>
+  </div>
+  <div *ngIf="products?.length ==0" class="alert alert-danger col-md-12" role="alert">
+    No products found.
+  </div>
+  <br>
+  <br>
+  <hr>
+  <div class="footer-pagination">
+    <div class="row">
+      <div class="col-md-6"></div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-9" style="padding-left: 30%">
+
+            <ngb-pagination [(page)]="pageNumber"
+                            [pageSize]="pageSize"
+                            [collectionSize]="totalElements"
+                            [maxSize]="5"
+                            [boundaryLinks]="true"
+                            (pageChange)="getProducts()">
+
+            </ngb-pagination>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </mat-card>

@@ -21,10 +21,12 @@ public class ProductMgmtApplication {
 	}
 
 	@Bean
-	CommandLineRunner start( RepositoryRestConfiguration repositoryRestConfiguration) {
+	CommandLineRunner start( CategoryRepository categoryRepository,RepositoryRestConfiguration repositoryRestConfiguration) {
 		repositoryRestConfiguration.exposeIdsFor(Product.class, Category.class, Photo.class);
 		return args -> {
-
+			categoryRepository.save(new Category(1L, "Pcs and tablets"));
+			categoryRepository.save(new Category(2L, "Accessories and printers"));
+			categoryRepository.save(new Category(3L, "Smartphones"));
 		};
 
 	}

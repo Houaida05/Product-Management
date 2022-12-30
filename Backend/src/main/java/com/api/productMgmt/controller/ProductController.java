@@ -46,24 +46,6 @@ public class ProductController {
         p.setPhotos(photos);
         productRepository.save(p);
       }
-    @PatchMapping("/products/{id}/images")
-    public void AddPhoto( @PathVariable (name = "id") Long id,MultipartFile[] files ){
-        Product p = productRepository.findById(id).get();
-        List<Photo> photos = new ArrayList<>();
-        productRepository.save(p);
-        Arrays.asList(files).stream().forEach(file -> {
-            try {
-                Files.write(Paths.get(System.getProperty("user.dir") + "/images/" + file.getOriginalFilename()), file.getBytes());
-                Photo photo = new Photo(null,"/images/" + file.getOriginalFilename(),p);
-                photos.add(photo);
-                photoRepository.save(photo);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        });
-        p.setPhotos(photos);
-        productRepository.save(p);
-    }
     @GetMapping(path = "/images/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
     public byte[] getImage(@PathVariable("id") Long id) throws Exception {
         Photo photo = photoRepository.findById(id).get();
